@@ -481,3 +481,146 @@ body {
   padding: 5px 8px;
   border-radius: 50%;
 }
+
+/* Support.html */
+.support-contetn{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.banner {
+  background: url("../images/banner/f4b11bdd-cd6d-4309-b9be-303647bc4d2a.webp") no-repeat center center;
+  background-size: cover;
+  width: 90%;
+  height: 300px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.banner-contetn {
+  margin-left: 10%;
+  color: #fff;
+}
+
+.faq-section {
+  text-align: center;
+  padding: 40px;
+}
+
+.faq-section h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.faq-section p {
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.faq-item {
+  width: 80%;
+  margin: 10px auto;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+
+.faq-question h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.toggle-icon {
+  font-size: 20px;
+  transition: transform 0.2s;
+}
+
+.faq-answer {
+  display: none;
+  padding: 15px;
+  background-color: #e8f8f5;
+  font-size: 16px;
+}
+
+.faq-item.open .faq-answer {
+  display: block;
+}
+
+.faq-item.open .toggle-icon {
+  transform: rotate(45deg);
+}
+
+.contact-form {
+  width: 80%;
+  margin: 50px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.contact-form h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.contact-form form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.form-group {
+  flex: 1 1 45%;
+  display: flex;
+  flex-direction: column;
+}
+
+.full-width {
+  flex: 1 1 100%;
+}
+
+label {
+  font-size: 14px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.input-name, .input-email, .input-subject, .input-message {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  outline: none !important;
+  background-color: transparent;
+}
+
+.input-message {
+  resize: none;
+}
+
+.btn-submit {
+  padding: 12px 20px;
+  font-size: 16px;
+  color: white;
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.btn-submit:hover {
+  background-color: #226622;
+}
