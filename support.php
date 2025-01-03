@@ -31,7 +31,7 @@
     <a href="#"><i class="icon fa fa-user-plus"></i><span>Guest</span></a>
     <a href="#"><i class="icon fa fa-comments"></i> <span>Chat</span></a>
     <a href="#"><i class="icon fa fa-chart-bar"></i> <span>Report</span></a>
-    <a href="support.html"><i class="icon fa fa-life-ring"></i> <span>Support</span></a>
+    <a href="support.php"><i class="icon fa fa-life-ring"></i> <span>Support</span></a>
     <a href="#"><i class="icon fa fa-gear"></i> <span>Settings</span></a>
   </div>
 
