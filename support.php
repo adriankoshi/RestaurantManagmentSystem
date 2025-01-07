@@ -1,41 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Home | Restaurant</title>
-
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
-
-<body>
-  <div class="navbar">
-    <div class="logo">Restaurant</div>
-    <div class="nav-items">
-      <a href="#"><i class="fa fa-bell"></i></a>
-      <a href="#"><i class="fa fa-envelope"></i></a>
-      <div class="profile">
-        <img src="https://via.placeholder.com/40" alt="Profile Picture" />
-        <span>Jenny Wilson</span>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="sidebar">
-    <a href="index.html" class="active"><i class="icon fa fa-home"></i> <span>Floor</span></a>
-    <a href="#"><i class="icon fa fa-th"></i> <span>Grid View</span></a>
-    <a href="#"><i class="icon fa fa-clock"></i> <span>Timeline</span></a>
-    <a href="#"><i class="icon fa fa-user-plus"></i><span>Guest</span></a>
-    <a href="#"><i class="icon fa fa-comments"></i> <span>Chat</span></a>
-    <a href="#"><i class="icon fa fa-chart-bar"></i> <span>Report</span></a>
-    <a href="support.php"><i class="icon fa fa-life-ring"></i> <span>Support</span></a>
-    <a href="#"><i class="icon fa fa-gear"></i> <span>Settings</span></a>
-  </div>
-
-  <div class="main-content">
+<?php
+require_once 'includes/header.php';
+?>
     <div class="support-contetn">
       <div class="banner">
         <div class="banner-contetn">
@@ -124,6 +89,8 @@
     });
 
   </script>
-</body>
 
-</html>
+
+<?php
+require_once 'includes/footer.php';
+?>
