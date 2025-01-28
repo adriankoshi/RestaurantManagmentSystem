@@ -2,17 +2,23 @@
 require_once 'includes/header.php';
 require_once 'classes/Tables.php';
 
+if($_SESSION['role'] !== 4){
+    session_destroy();
+    header('Location: login.php');
+    exit();
+}
+
 $tables = new Tables();
 $allTables = $tables->getFloors();
-
 $getTables = $tables->getTables();
+
 ?>
 
 <div class="tables" style="width: 100%!important;">
     <div class="tables-head">
         <ul>
-            <li class="tab active" data-tab="outdoor">Tables</li>
-            <li class="tab" data-tab="terrace">Floors</li>
+            <li class="tab active" data-tab="outdoor"><a href="tables.php?ID=1">Tables</a></li>
+            <li class="tab" data-tab="terrace"><a href="tables.php?ID=2">Floors</a></li>
         </ul>
     </div>
     <div class="tables-body">
@@ -143,6 +149,33 @@ $getTables = $tables->getTables();
     });
 </script>
 
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get("ID");
+
+    const activeTabId = id === "2" ? "terrace" : "outdoor";
+
+    const tabs = document.querySelectorAll(".tab");
+    const tabContents = document.querySelectorAll(".tab-content");
+
+    tabs.forEach((tab) => {
+        const tabTarget = tab.getAttribute("data-tab");
+
+        if (tabTarget === activeTabId) {
+            tab.classList.add("active");
+        } else {
+            tab.classList.remove("active");
+        }
+    });
+
+    tabContents.forEach((content) => {
+        if (content.id === activeTabId) {
+            content.style.display = "block";
+        } else {
+            content.style.display = "none";
+        }
+    });
+    </script>
 
 <script>
     document.querySelectorAll(".reservations-head .tab").forEach((tab) => {
@@ -238,7 +271,7 @@ $getTables = $tables->getTables();
                 success: function(response) {
                     alert(response);
                     $("#addFloorModal").hide();
-                    location.reload();
+                    window.location.href = 'tables.php?ID=2'
                 },
                 error: function() {
                     alert("Error processing the request.");
@@ -285,7 +318,7 @@ $getTables = $tables->getTables();
                     },
                     success: function(response) {
                         alert(response);
-                        location.reload();
+                        window.location.href = 'tables.php?ID=2'
                     },
                     error: function() {
                         alert("Error deleting floor.");
@@ -343,7 +376,7 @@ $("#addTableForm").submit(function(e) {
         success: function(response) {
             alert(response);
             $("#addTableModal").hide();
-            location.reload(); // Reload the page to show the updated list
+            window.location.href = 'tables.php?ID=1'
         },
         error: function() {
             alert("Error processing the request.");
@@ -389,7 +422,7 @@ $(document).on("click", ".btn-delete-table", function() {
             data: { table_id: tableId },
             success: function(response) {
                 alert(response);
-                location.reload(); // Reload to show updated list
+                window.location.href = 'tables.php?ID=1'
             },
             error: function() {
                 alert("Error deleting table.");

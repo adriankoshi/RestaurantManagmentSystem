@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 07, 2025 at 03:48 PM
+-- Generation Time: Jan 28, 2025 at 06:17 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,6 +20,29 @@ SET time_zone = "+00:00";
 --
 -- Database: `restaurantmanagment`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `roles`
+--
+
+CREATE TABLE `roles` (
+  `id` int(11) NOT NULL,
+  `role_name` varchar(32) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `created_by` varchar(100) DEFAULT NULL,
+  `updated_by` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `roles`
+--
+
+INSERT INTO `roles` (`id`, `role_name`, `created_at`, `updated_at`, `created_by`, `updated_by`) VALUES
+(4, 'Admin', '2025-01-16 18:38:42', '2025-01-16 18:38:42', 'TEST', 'TEST'),
+(5, 'Waiter', '2025-01-16 19:17:39', '2025-01-16 19:17:39', 'Elsa', 'Elsa');
 
 -- --------------------------------------------------------
 
@@ -45,7 +68,8 @@ INSERT INTO `tables` (`table_id`, `table_name`, `table_floor`, `table_row`) VALU
 (5, 'J4', 2, 3),
 (6, 'J5', 2, 0),
 (7, 'T1', 1, 0),
-(8, 'T2', 1, 0);
+(8, 'T2', 1, 0),
+(9, 'T3', 2, 0);
 
 -- --------------------------------------------------------
 
@@ -74,23 +98,34 @@ INSERT INTO `tables_floors` (`tf_id`, `tf_name`) VALUES
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
-  `fullname` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `username` varchar(255) NOT NULL,
+  `fullname` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `username` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `role` enum('admin','user') DEFAULT 'user'
+  `role_id` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `created_by` varchar(100) DEFAULT NULL,
+  `updated_by` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `fullname`, `email`, `username`, `password`, `role`) VALUES
-(1, 'Elsa Test', 'elsa@gmail.com', 'elsagashi', '$2y$10$tuuYQE1iiEVnPV9Rz6.Doub5y2GhKJfRWMNkqihzcIRbn.IbgWEq.', 'user');
+INSERT INTO `users` (`id`, `fullname`, `email`, `username`, `password`, `role_id`, `created_at`, `updated_at`, `created_by`, `updated_by`) VALUES
+(1, 'Elsa', 'elsa@gmail.com', '', 'c4ca4238a0b923820dcc509a6f75849b', 4, '2025-01-16 18:50:00', '2025-01-16 19:11:11', 'TEST', 'TEST'),
+(6, 'adrian', 'adrian@adrian.com', 'adrian', 'c4ca4238a0b923820dcc509a6f75849b', 5, '2025-01-16 19:17:58', '2025-01-16 19:17:58', 'Elsa', 'Elsa');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `roles`
+--
+ALTER TABLE `roles`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `tables`
@@ -109,29 +144,38 @@ ALTER TABLE `tables_floors`
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`),
+  ADD UNIQUE KEY `username` (`username`),
+  ADD KEY `role_id` (`role_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
+-- AUTO_INCREMENT for table `roles`
+--
+ALTER TABLE `roles`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `tables`
 --
 ALTER TABLE `tables`
-  MODIFY `table_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `table_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `tables_floors`
 --
 ALTER TABLE `tables_floors`
-  MODIFY `tf_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `tf_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
@@ -142,6 +186,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `tables`
   ADD CONSTRAINT `fk_table_floor` FOREIGN KEY (`table_floor`) REFERENCES `tables_floors` (`tf_id`);
+
+--
+-- Constraints for table `users`
+--
+ALTER TABLE `users`
+  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
