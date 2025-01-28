@@ -5,7 +5,6 @@ require_once 'includes/header.php';
       <div class="banner">
         <div class="banner-contetn">
           <h1>Your favorite place to be!</h1>
-
         </div>
       </div>
     </div>

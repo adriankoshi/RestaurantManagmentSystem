@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (empty($_SESSION['username'])) {
+    header("Location: login.php");
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,16 +20,13 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- DataTables CSS -->
-<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<!-- jQuery (required for DataTables) -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-<!-- DataTables JS -->
-<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 
 </head>
-
 <body>
     <!-- Navbar -->
     <div class="navbar">
@@ -31,16 +36,34 @@
             <a href="#"><i class="fa fa-envelope"></i></a>
             <div class="profile">
                 <img src="https://via.placeholder.com/40" alt="Profile Picture" />
-                <span>Jenny Wilson</span>
+                <span><?php echo $_SESSION['username'];?></span>
+                <ul>
+                    <li><a href="handler/logout.php" id="logoutLink">Logout</a></li>
+                </ul>
             </div>
         </div>
     </div>
+<script>
+$(document).ready(function() {
+    $('.profile').on('click', function(e) {
+        
+        e.stopPropagation();
+        $(this).toggleClass('active');
+    });
 
+    $(document).on('click', function(e) {
+        if (!$(e.target).closest('.profile').length) {
+            $('.profile').removeClass('active');
+        }
+    });
+});
+</script>
     <!-- Sidebar -->
     <div class="sidebar">
-        <a href="index.php" class="active"><i class="icon fa fa-home"></i> <span>Floor</span></a>
-        <a href="tables.php"><i class="icon fa fa-th"></i> <span>Grid View</span></a>
-        <a href="#"><i class="icon fa fa-clock"></i> <span>Timeline</span></a>
+        <a href="index.php" id="Floor"><i class="icon fa fa-home"></i> <span>Floor</span></a>
+        <a href="tables.php?ID=1" id="Tables"><i class="icon fa fa-th"></i> <span>Tables</span></a>
+        <a href="users.php?ID=1" id="Users"><i class="icon fa fa-clock"></i> <span>Users</span></a>
+        <a href="products.php?ID=1" id="Products"><i class="icon fa fa-clock"></i> <span>Products</span></a>
         <a href="#"><i class="icon fa fa-user-plus"></i><span>Guest</span></a>
         <a href="#"><i class="icon fa fa-comments"></i> <span>Chat</span></a>
         <a href="#"><i class="icon fa fa-chart-bar"></i> <span>Report</span></a>
@@ -48,5 +71,13 @@
         <a href="#"><i class="icon fa fa-gear"></i> <span>Settings</span></a>
     </div>
     
+    <script>
+        var userRole = <?php echo $_SESSION['role'];?>;
+        if (userRole !== 4) { 
+            document.getElementById('Tables').style.display = 'none';
+            document.getElementById('Users').style.display = 'none';
+            document.getElementById('Products').style.display = 'none';
+        }
+    </script>
     <!-- Main Content -->
     <div class="main-content">
