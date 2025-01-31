@@ -885,3 +885,48 @@ h2 {
 .profile img, .profile ul {
   pointer-events: auto;
 }
+
+#order-list {
+  list-style: none; /* Removes bullet points */
+  padding: 0;
+}
+
+#order-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+.order-buttons {
+  display: flex;
+}
+
+.remove-one, .remove-all {
+  width: 30px;
+  height: 30px;
+  background-color: var(--primary-color);
+  color: white;
+  border: 1px solid white;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+#clear-all{
+  width: 48%;
+  height: 35px;
+  background-color: red;
+  color: white;
+  border-radius: 10px;
+  border: none;
+}
+#save-order{
+  width: 48%;
+  height: 35px;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 10px;
+  border: none;
+}

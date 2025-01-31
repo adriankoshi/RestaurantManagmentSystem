@@ -103,6 +103,25 @@ class Products
         return $products;
     }
 
+    public function getProductsByGroup($group_id)
+    {
+        $config = new Database();
+        $conn = $config->getConnection();
+
+        $sql = "SELECT * FROM Products WHERE group_id = $group_id";
+        $result = mysqli_query($conn, $sql);
+
+        $products = [];
+        if (mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                $products[] = $row;
+            }
+        }
+        mysqli_close($conn);
+
+        return $products;
+    }
+
     // Get a product by ID
     public function getProductById($product_id)
     {
