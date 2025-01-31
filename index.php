@@ -100,7 +100,7 @@ foreach ($getTables as $table) {
                             if (isset($tablesByFloor[$floor['tf_id']])) {
                                 foreach ($tablesByFloor[$floor['tf_id']] as $table) {
                             ?>
-                                    <a class="table-link" href="order.php?id=<?php echo $table['table_id']; ?>"><?php echo htmlspecialchars($table['table_name']); ?></a>
+                                    <a class="table-link" href="order.php?id=<?php echo $table['table_id']; ?>&gid=0"><?php echo htmlspecialchars($table['table_name']); ?></a>
                             <?php
                                 }
                             } else {

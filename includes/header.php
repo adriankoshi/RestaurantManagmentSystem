@@ -63,9 +63,8 @@ $(document).ready(function() {
         <a href="index.php" id="Floor"><i class="icon fa fa-home"></i> <span>Floor</span></a>
         <a href="tables.php?ID=1" id="Tables"><i class="icon fa fa-th"></i> <span>Tables</span></a>
         <a href="users.php?ID=1" id="Users"><i class="icon fa fa-clock"></i> <span>Users</span></a>
-        <a href="products.php?ID=1" id="Products"><i class="icon fa fa-clock"></i> <span>Products</span></a>
-        <a href="#"><i class="icon fa fa-user-plus"></i><span>Guest</span></a>
-        <a href="#"><i class="icon fa fa-comments"></i> <span>Chat</span></a>
+        <a href="products.php?ID=1" id="Products"><i class="icon fa fa-user-plus"></i> <span>Products</span></a>
+        <a href="orders.php" id="Orders"><i class="icon fa fa-comments"></i> <span>Orders</span></a>
         <a href="#"><i class="icon fa fa-chart-bar"></i> <span>Report</span></a>
         <a href="support.php"><i class="icon fa fa-life-ring"></i> <span>Support</span></a>
         <a href="#"><i class="icon fa fa-gear"></i> <span>Settings</span></a>
@@ -77,6 +76,7 @@ $(document).ready(function() {
             document.getElementById('Tables').style.display = 'none';
             document.getElementById('Users').style.display = 'none';
             document.getElementById('Products').style.display = 'none';
+            document.getElementById('Orders').style.display = 'none';
         }
     </script>
     <!-- Main Content -->
