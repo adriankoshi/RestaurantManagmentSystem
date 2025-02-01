@@ -38,8 +38,11 @@ if (empty($_SESSION['username'])) {
                 <img src="https://via.placeholder.com/40" alt="Profile Picture" />
                 <span><?php echo $_SESSION['username'];?></span>
                 <ul>
-                    <li><a href="handler/logout.php" id="logoutLink">Logout</a></li>
-                </ul>
+    <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
+        <li><a href="admin_dashboard.php">Go to Admin Dashboard</a></li>
+    <?php endif; ?>
+    <li><a href="handler/logout.php" id="logoutLink">Logout</a></li>
+</ul>
             </div>
         </div>
     </div>

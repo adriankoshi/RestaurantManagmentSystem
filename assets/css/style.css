@@ -198,7 +198,7 @@ a {
 }
 
 /* Typography */
-body {  
+body {
   font-family: "Poppins", sans-serif;
   line-height: 1.6;
   height: 100vh;
@@ -302,7 +302,7 @@ body {
   background-color: #e9ecef;
 }
 
-.tables-content{
+.tables-content {
   display: flex;
   padding: 1rem;
   flex-wrap: wrap;
@@ -315,7 +315,6 @@ body {
   padding: 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-
 
 .tables-head ul li {
   padding: 10px 20px;
@@ -420,7 +419,7 @@ body {
   justify-content: space-between;
   padding: 5px 0;
   background-color: #fff;
-  border: 1px solid #ddd
+  border: 1px solid #ddd;
 }
 
 .search-filter input {
@@ -475,7 +474,7 @@ body {
   color: #555;
 }
 
-.count{
+.count {
   color: #fff;
   background-color: #e55f0c;
   font-size: 0.6rem;
@@ -484,7 +483,7 @@ body {
 }
 
 /* Support.html */
-.support-contetn{
+.support-contetn {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -492,7 +491,8 @@ body {
 }
 
 .banner {
-  background: url("../images/banner/f4b11bdd-cd6d-4309-b9be-303647bc4d2a.webp") no-repeat center center;
+  background: url("../images/banner/f4b11bdd-cd6d-4309-b9be-303647bc4d2a.webp")
+    no-repeat center center;
   background-size: cover;
   width: 90%;
   height: 300px;
@@ -596,7 +596,10 @@ label {
   text-align: left;
 }
 
-.input-name, .input-email, .input-subject, .input-message {
+.input-name,
+.input-email,
+.input-subject,
+.input-message {
   padding: 10px;
   font-size: 16px;
   border-radius: 4px;
@@ -707,7 +710,7 @@ h2 {
   }
 }
 
-.login-form{
+.login-form {
   background-color: #f1f1f1;
   margin: 0;
   padding: 0;
@@ -718,145 +721,147 @@ h2 {
   color: #333;
 }
 
-    /* General Table Styling */
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 20px 0;
-      font-size: 16px;
-      text-align: left;
-  }
-  
-  /* Table Header Styling */
-  table thead tr {
-      background-color: var(--primary-color);
-      color: #fff;
-      text-align: center;
-      font-weight: bold;
-  }
-  
-  table th, table td {
-      padding: 12px 15px;
-      border: 1px solid #ddd;
-  }
-  
-  /* Zebra Striping for Rows */
-  table tbody tr:nth-child(even) {
-      background-color: #f2f2f2;
-  }
-  
-  /* Hover Effect for Rows */
-  table tbody tr:hover {
-      background-color: #ddd;
-  }
-  
-  /* Add some margin for the container */
-  .container {
-      padding: 20px;
-      font-family: Arial, sans-serif;
-  }
-  
-  /* Table Heading */
-  .container h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      font-size: 24px;
-      color: #333;
-  }
-  
-  /* Pagination and Search Styling */
-  .dataTables_wrapper {
-      margin-top: 10px;
-      font-family: Arial, sans-serif;
-  }
-  
-  .dataTables_wrapper .dataTables_filter input {
-      margin-left: 5px;
-      padding: 5px;
-      font-size: 14px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-  }
-  
-  .dataTables_wrapper .dataTables_length select {
-      padding: 5px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      font-size: 14px;
-  }
-  
-  .dataTables_wrapper .dataTables_paginate {
-      margin-top: 10px;
-      display: flex;
-      justify-content: flex-end;
-      gap: 5px;
-  }
-  
-  .dataTables_wrapper .dataTables_paginate .paginate_button {
-      padding: 5px 10px;
-      border: 1px solid #ccc;
-      background-color: #f9f9f9;
-      color: #333;
-      cursor: pointer;
-      border-radius: 4px;
-      font-size: 14px;
-  }
-  
-  .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
-      background-color: #ddd;
-      color: #000;
-  }
-  
-  .dataTables_wrapper .dataTables_paginate .paginate_button.current {
-      background-color: #333;
-      color: #fff;
-      border: none;
-      font-weight: bold;
-  }
-  
-  .modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5);
+/* General Table Styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 16px;
+  text-align: left;
+}
+
+/* Table Header Styling */
+table thead tr {
+  background-color: var(--primary-color);
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+}
+
+table th,
+table td {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+}
+
+/* Zebra Striping for Rows */
+table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Hover Effect for Rows */
+table tbody tr:hover {
+  background-color: #ddd;
+}
+
+/* Add some margin for the container */
+.container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* Table Heading */
+.container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+/* Pagination and Search Styling */
+.dataTables_wrapper {
+  margin-top: 10px;
+  font-family: Arial, sans-serif;
+}
+
+.dataTables_wrapper .dataTables_filter input {
+  margin-left: 5px;
+  padding: 5px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.dataTables_wrapper .dataTables_length select {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.dataTables_wrapper .dataTables_paginate {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 5px;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  color: #333;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+  background-color: #ddd;
+  color: #000;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  font-weight: bold;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .modal-content {
-    background-color: white;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 50%;
+  background-color: white;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
 }
 
 .close-btn {
-    color: #aaa;
-    font-size: 28px;
-    font-weight: bold;
-    float: right;
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  float: right;
 }
 
 .close-btn:hover,
 .close-btn:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
 .profile {
   position: relative;
   display: inline-block;
+  cursor: pointer;
 }
 
 .profile ul {
   display: none;
   position: absolute;
   top: 50px;
-  left: 0;
+  right: 0;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -864,10 +869,11 @@ h2 {
   border: 1px solid #ddd;
   border-radius: 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  z-index: 1;
+  z-index: 1000;
+  width: 200px;
 }
 .profile ul li {
-  padding: 8px 16px;
+  padding: 10px 15px;
 }
 
 .profile ul li a {
@@ -882,7 +888,8 @@ h2 {
 .profile.active ul {
   display: block;
 }
-.profile img, .profile ul {
+.profile img,
+.profile ul {
   pointer-events: auto;
 }
 
@@ -904,7 +911,8 @@ h2 {
   display: flex;
 }
 
-.remove-one, .remove-all {
+.remove-one,
+.remove-all {
   width: 30px;
   height: 30px;
   background-color: var(--primary-color);
@@ -914,7 +922,7 @@ h2 {
   cursor: pointer;
 }
 
-#clear-all{
+#clear-all {
   width: 48%;
   height: 35px;
   background-color: red;
@@ -922,11 +930,154 @@ h2 {
   border-radius: 10px;
   border: none;
 }
-#save-order{
+#save-order {
   width: 48%;
   height: 35px;
   background-color: var(--primary-color);
   color: white;
   border-radius: 10px;
   border: none;
+}
+.admin-sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 250px;
+  height: 100vh;
+  background-color: #343a40;
+  color: white;
+  padding-top: 20px;
+}
+
+.admin-sidebar h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 22px;
+}
+
+.admin-sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.admin-sidebar ul li {
+  padding: 15px 20px;
+}
+
+.admin-sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+}
+
+.admin-sidebar ul li a:hover,
+.admin-sidebar ul li a.active {
+  background-color: #007bff;
+  border-left: 4px solid white;
+}
+
+/* Main Admin Content */
+.admin-content {
+  margin-left: 260px;
+  padding: 20px;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
+/* Admin Grid Layout */
+.admin-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Admin Cards */
+.admin-card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  min-width: 300px;
+}
+
+/* Tables */
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-table th {
+  background-color: #007bff;
+  color: white;
+  padding: 12px;
+  text-align: left;
+}
+
+.admin-table td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+.admin-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Logout Button */
+.logout {
+  background-color: #dc3545;
+  color: white;
+  padding: 10px 15px;
+  text-align: center;
+  display: block;
+  margin-top: 10px;
+}
+
+.logout:hover {
+  background-color: #c82333;
+}
+.btn-edit {
+  background-color: #007bff;
+  color: white;
+  padding: 6px 12px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-delete {
+  background-color: #dc3545;
+  color: white;
+  padding: 6px 12px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-edit:hover {
+  background-color: #0056b3;
+}
+
+.btn-delete:hover {
+  background-color: #c82333;
+}
+
+.admin-dashboard-button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #007bff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+}
+
+.admin-dashboard-button a {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.admin-dashboard-button:hover {
+  background-color: #0056b3;
 }
