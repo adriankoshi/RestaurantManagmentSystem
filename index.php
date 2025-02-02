@@ -1,6 +1,11 @@
 <?php
 require_once 'includes/header.php';
 require_once 'classes/Tables.php';
+require_once 'classes/Orders.php';
+
+$orders = new Orders();
+$getOrders = $orders->getOrdersToday();
+$countOrders = $orders->countOrdersToday();
 
 $tables = new Tables();
 $allFloors = $tables->getFloors();
@@ -16,9 +21,14 @@ foreach ($getTables as $table) {
     <div class="reservations mr-4">
         <div class="reservations-head">
             <ul>
-                <li class="tab active" data-tab="reservations">Reservations <span class="count">4</span></li>
-                <li class="tab" data-tab="waitlist">Waitlist</li>
-                <li class="tab" data-tab="servers">Servers</li>
+                <li class="tab active" data-tab="reservations">Orders 
+                <?php if (!empty($countOrders)) {
+                foreach ($countOrders as $order) { ?>
+                    <span class="count"><?php echo htmlspecialchars($order['Count']); ?></span>
+                    <?php }
+            } else { ?>
+            <?php } ?>
+                </li>
             </ul>
             <div class="search-filter m-2">
                 <input type="text" placeholder="Search here">
@@ -28,44 +38,28 @@ foreach ($getTables as $table) {
             </div>
         </div>
         <div class="reservations-body tab-content" id="reservations">
-            <h3>Lunch</h3>
-            <div class="reservation-item">
-                <div class="info">
-                    <p class="name">Filan Fisteku</p>
-                    <p style="font-size: 0.8rem;"><i class="fa fa-user"></i> 4 Person · <i class="fa fa-table"></i> Tables: 05, 06, 07</p>
+            <h3>ORDERS</h3>
+            <?php if (!empty($getOrders)) {
+                foreach ($getOrders as $order) { ?>
+                    <a href='order-details.php?id=<?php echo htmlspecialchars($order['order_id']); ?>' class="reservation-item">
+                        <div class="info">
+                            <p class="name"><?php echo htmlspecialchars($order['waiter_name']); ?></p>
+                            <p style="font-size: 0.8rem;"><i class="fa fa-user"></i> 4 Person · <i class="fa fa-table"></i> Tables: <?php echo htmlspecialchars($order['table_name']); ?></p>
+                        </div>
+                        <div class="time"><?php echo date("h:i A", strtotime($order['order_datetime'])); ?></div>
+                </a>
+                <?php }
+            } else { ?>
+                <div class="reservation-item">
+                    <div class="info">
+                        <p class="name">No Data availivabile</p>
+                        <p style="font-size: 0.8rem;"><i class="fa fa-user"></i> NAN · <i class="fa fa-table"></i> Tables: NAN</p>
+                    </div>
+                    <div class="time">10:00 PM</div>
                 </div>
-                <div class="time">10:00 PM</div>
-            </div>
-            <div class="reservation-item">
-                <div class="info">
-                    <p class="name">Filan Fisteku</p>
-                    <p style="font-size: 0.8rem;"><i class="fa fa-user"></i> 4 Person · <i class="fa fa-table"></i> Tables: 05, 06, 07</p>
-                </div>
-                <div class="time">10:00 PM</div>
-            </div>
+            <?php } ?>
 
-            <h3>Dinner</h3>
-            <div class="reservation-item">
-                <div class="info">
-                    <p class="name">Filan Fisteku</p>
-                    <p style="font-size: 0.8rem;"><i class="fa fa-user"></i> 4 Person · <i class="fa fa-table"></i> Tables: 05, 06, 07</p>
-                </div>
-                <div class="time">10:00 PM</div>
-            </div>
-            <div class="reservation-item">
-                <div class="info">
-                    <p class="name">Filan Fisteku</p>
-                    <p style="font-size: 0.8rem;"><i class="fa fa-user"></i> 4 Person · <i class="fa fa-table"></i> Tables: 05, 06, 07</p>
-                </div>
-                <div class="time">10:00 PM</div>
-            </div>
-            <div class="reservation-item">
-                <div class="info">
-                    <p class="name">Filan Fisteku</p>
-                    <p style="font-size: 0.8rem;"><i class="fa fa-user"></i> 4 Person · <i class="fa fa-table"></i> Tables: 05, 06, 07</p>
-                </div>
-                <div class="time">10:00 PM</div>
-            </div>
+
         </div>
     </div>
     <div class="tables">

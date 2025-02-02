@@ -29,6 +29,7 @@ $getTables = $tables->getProducts();
 
                 <button id="addProductButton" class="btn-submit">Add New Product</button>
                 <h2>Product List</h2>
+                <div class="table-responsive">
                 <table id="tablesTable" class="display" style="width:100%">
                     <thead>
                         <tr>
@@ -70,6 +71,7 @@ $getTables = $tables->getProducts();
                     </tbody>
 
                 </table>
+                </div>
             </div>
         </div>
         <div class="tab-content" id="terrace" style="display: none">
@@ -78,6 +80,7 @@ $getTables = $tables->getProducts();
 
                 <button id="addFloorButton" class="btn-submit">Add New Group</button>
                 <h2>Group List</h2>
+                <div class="table-responsive">
                 <table id="floorsTable" class="display" style="width:100%">
                     <thead>
                         <tr>
@@ -113,6 +116,7 @@ $getTables = $tables->getProducts();
                     </tbody>
 
                 </table>
+                </div>
             </div>
 
         </div>

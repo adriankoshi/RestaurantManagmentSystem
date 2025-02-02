@@ -29,6 +29,7 @@ $getUsers = $users->getUsers();
 
             <button id="addUserButton" class="btn-submit">Add New User</button>
         <h2>User List</h2>
+        <div class="table-responsive">
         <table id="usersTable" class="display" style="width:100%">
             <thead>
                 <tr>
@@ -68,6 +69,7 @@ $getUsers = $users->getUsers();
             </tbody>
         </table>
             </div>
+            </div>
         </div>
         <div class="tab-content" id="terrace" style="display: none">
 
@@ -75,6 +77,7 @@ $getUsers = $users->getUsers();
 
                 <button id="addRoleButton" class="btn-submit">Add New Role</button>
                 <h2>Role List</h2>
+                <div class="table-responsive">
                 <table id="floorsTable" class="display" style="width:100%">
                     <thead>
                         <tr>
@@ -110,6 +113,7 @@ $getUsers = $users->getUsers();
                     </tbody>
 
                 </table>
+                </div>
             </div>
 
         </div>
