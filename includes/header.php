@@ -70,7 +70,7 @@ $(document).ready(function() {
         <a href="products.php?ID=1" id="Products"><i class="fa-brands fa-product-hunt"></i> <span>Products</span></a>
         <a href="orders.php" id="Orders"><i class="icon fa fa-chart-bar"></i> <span>Orders</span></a>
         <a href="support.php"><i class="icon fa fa-life-ring"></i> <span>Support</span></a>
-        <a href="#"><i class="icon fa fa-gear"></i> <span>Settings</span></a>
+        <a href="settings.php"><i class="icon fa fa-gear"></i> <span>Settings</span></a>
     </div>
     
     <script>

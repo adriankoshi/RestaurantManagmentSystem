@@ -1132,3 +1132,34 @@
   .admin-dashboard-button:hover {
     background-color: #0056b3;
   }
+
+  
+  .profile-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+.profile-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ddd;
+}
+.input-group {
+    margin: 10px 0;
+    text-align: left;
+}
+label {
+    font-size: 14px;
+    color: #333;
+}
+input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
