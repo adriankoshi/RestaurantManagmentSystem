@@ -82,6 +82,47 @@ require_once 'includes/header.php';
   </div>
 </section>
 
+<?php
+// Ensure no output before this point
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'phpmailer/vendor/autoload.php';
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $name = htmlspecialchars($_POST["name"]);
+  $email = htmlspecialchars($_POST["email"]);
+  $subject = htmlspecialchars($_POST["subject"]);
+  $message = htmlspecialchars($_POST["message"]);
+
+  $mail = new PHPMailer(true);
+
+  try {
+    // SMTP Settings
+    $mail->isSMTP();
+    $mail->Host       = 'smtp.gmail.com';
+    $mail->SMTPAuth   = true;
+    $mail->Username   = 'sarikomutang@gmail.com';
+    $mail->Password   = 'tubxewncunbmcqmf';
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+    $mail->Port       = 587;
+
+    $mail->setFrom('adriankoshi@temenx.com', 'PROJEKTI UBT');
+    $mail->addAddress($email, $name);
+
+    $mail->isHTML(true);
+    $mail->Subject = !empty($subject) ? $subject : 'No Subject';
+    $mail->Body = "<h3>Message from: $name ($email)</h3><p>$message</p>";
+
+    $mail->send();
+    echo "<script>window.location.reload()</script>";
+    exit();
+  } catch (Exception $e) {
+    exit();
+  }
+}
+?>
+
 <section class="contact-form">
   <h1>Get In Touch</h1>
 
