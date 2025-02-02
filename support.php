@@ -84,7 +84,8 @@ require_once 'includes/header.php';
 
 <section class="contact-form">
   <h1>Get In Touch</h1>
-  <form action="#" method="POST">
+
+  <form action="" method="POST">
     <div class="form-group">
       <label for="name">Name</label>
       <input type="text" id="name" class="input-name" name="name" placeholder="Your Name" required>
@@ -102,8 +103,7 @@ require_once 'includes/header.php';
 
     <div class="form-group full-width">
       <label for="message">Message</label>
-      <textarea id="message" class="input-message" name="message" rows="6" placeholder="Write your message here"
-        required></textarea>
+      <textarea id="message" class="input-message" name="message" rows="6" placeholder="Write your message here" required></textarea>
     </div>
 
     <div class="form-group full-width">
@@ -111,6 +111,8 @@ require_once 'includes/header.php';
     </div>
   </form>
 </section>
+
+
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
