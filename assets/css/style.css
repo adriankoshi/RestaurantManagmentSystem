@@ -711,7 +711,9 @@ h2 {
 }
 
 .login-form {
-  background-color: #f1f1f1;
+  background: url("../images/login-background/restaurant-background.jpg")
+    no-repeat center center;
+  background-size: cover;
   margin: 0;
   padding: 0;
   height: 100vh;
@@ -721,7 +723,6 @@ h2 {
   color: #333;
 }
 
-/* General Table Styling */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -730,7 +731,6 @@ table {
   text-align: left;
 }
 
-/* Table Header Styling */
 table thead tr {
   background-color: var(--primary-color);
   color: #fff;
