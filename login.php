@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +8,15 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
+
 <body>
-  <div class="login-form">
+  <div class="login-form" style="
+    background-image: url(assets/images/restaurant-background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+">
+
     <div class="form-container">
       <h1>Login</h1>
       <form id="loginForm">
@@ -50,4 +58,5 @@
     });
   </script>
 </body>
+
 </html>

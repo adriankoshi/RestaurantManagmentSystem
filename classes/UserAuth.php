@@ -46,6 +46,7 @@ class UserAuth {
         }
         mysqli_close($conn);
     }
+    
 
     public function getUserById($user_id) {
         $config = new Database();
@@ -54,6 +55,24 @@ class UserAuth {
         $sql = "SELECT * FROM users WHERE id = ?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("i", $user_id);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+        $table = $result->fetch_assoc();
+
+        $stmt->close();
+        mysqli_close($conn);
+
+        return $table;
+    }
+
+    public function getUserDetailsById($user_id) {
+        $config = new Database();
+        $conn = $config->getConnection();
+
+        $sql = "SELECT u.id, u.fullname, r.role_name, u.email, u.created_at, u.updated_at, u.created_at, u.created_by, u.updated_by FROM users u inner join roles r on r.id = u.role_id WHERE u.id = ?;";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("s", $user_id);
         $stmt->execute();
 
         $result = $stmt->get_result();
