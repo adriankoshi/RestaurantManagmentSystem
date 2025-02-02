@@ -29,6 +29,7 @@ $getTables = $tables->getTables();
 
                 <button id="addTableButton" class="btn-submit">Add New Table</button>
                 <h2>Table List</h2>
+                <div class="table-responsive">
                 <table id="tablesTable" class="display" style="width:100%">
                     <thead>
                         <tr>
@@ -58,6 +59,7 @@ $getTables = $tables->getTables();
                     </tbody>
 
                 </table>
+                </div>
             </div>
         </div>
         <div class="tab-content" id="terrace" style="display: none">
@@ -66,6 +68,7 @@ $getTables = $tables->getTables();
 
                 <button id="addFloorButton" class="btn-submit">Add New Floor</button>
                 <h2>Floors List</h2>
+                <div class="table-responsive">
                 <table id="floorsTable" class="display" style="width:100%">
                     <thead>
                         <tr>
@@ -93,6 +96,7 @@ $getTables = $tables->getTables();
                     </tbody>
 
                 </table>
+                        </div>
             </div>
 
         </div>

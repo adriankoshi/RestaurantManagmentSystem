@@ -1,6 +1,6 @@
 <?php
 require_once '../classes/UserAuth.php';
-header('Content-Type: application/json');
+header('Content-Type: application/json'); // Set content type to JSON
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = trim($_POST['username']);
@@ -12,13 +12,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     $auth = new UserAuth();
-    $loginResult = $auth->login($username, $password);
+    $loginResult = $auth->login($username, md5($password));
 
-    if ($loginResult === "admin") {
-        $_SESSION['role'] = "admin"; 
-        echo json_encode(['status' => 'success', 'redirect' => 'admin_dashboard.php']);
-    } elseif ($loginResult === "success") {
-        echo json_encode(['status' => 'success', 'redirect' => 'index.php']);
+    if ($loginResult === true) {
+        echo json_encode(['status' => 'success', 'message' => 'Login successful!']);
     } else {
         echo json_encode(['status' => 'error', 'message' => $loginResult]);
     }

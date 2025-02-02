@@ -20,6 +20,7 @@ $getTables = $tables->getOrders();
 
             <div class="container">
                 <h2>Orders List</h2>
+                <div class="table-responsive">
                 <table id="tablesTable" class="display" style="width:100%">
                     <thead>
                         <tr>
@@ -56,6 +57,7 @@ $getTables = $tables->getOrders();
                     </tbody>
 
                 </table>
+                </div>
             </div>
         </div>
         

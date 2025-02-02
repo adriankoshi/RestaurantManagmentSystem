@@ -1,27 +1,29 @@
 <?php
 require_once 'db.php';
 
-class Orders {
+class Orders
+{
 
-    public function saveOrder($table_id, $customer_name, $order_list) {
+    public function saveOrder($table_id, $customer_name, $order_list)
+    {
         // Create the database connection
         $config = new Database();
         $conn = $config->getConnection();
-        
+
         // Calculate totals
         $order_datetime = date("Y-m-d H:i:s");
         $total = 0;
         $tax = 0;
         $grand_total = 0;
-        
+
         foreach ($order_list as $item) {
             $total += $item['totalPrice'];
         }
-        
+
         $tax = $total * 0.18;
         $grand_total = $total + $tax;
-    
-       
+
+
         $insertOrderQuery = "INSERT INTO orders (table_id, waiter_name, order_datetime, total, tax, grand_total) 
                              VALUES ('$table_id', '$customer_name', '$order_datetime', '$total', '$tax', '$grand_total')";
         if (mysqli_query($conn, $insertOrderQuery)) {
@@ -32,9 +34,9 @@ class Orders {
                                       VALUES ('$order_id', '{$item['name']}', '{$item['quantity']}', '{$item['price']}', '{$item['totalPrice']}')";
                 mysqli_query($conn, $insertDetailQuery);
             }
-    
+
             mysqli_close($conn);
-    
+
             return true;
         } else {
 
@@ -62,6 +64,59 @@ class Orders {
         mysqli_close($conn);
     }
 
+    public function getOrdersToday()
+    {
+        $config = new Database();
+        $conn = $config->getConnection();
+
+        $sql = "SELECT o.*, t.table_name 
+            FROM orders o 
+            INNER JOIN tables t ON t.table_id = o.table_id 
+            WHERE DATE(o.order_datetime) = CURDATE() 
+            ORDER BY o.order_datetime DESC 
+            LIMIT 6";
+
+        $result = mysqli_query($conn, $sql);
+
+        $orders = []; // Initialize an empty array to store results
+
+        if (mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                $orders[] = $row;
+            }
+        }
+
+        mysqli_close($conn);
+        return $orders;
+    }
+
+    public function countOrdersToday()
+    {
+        $config = new Database();
+        $conn = $config->getConnection();
+
+        $sql = "SELECT COUNT(*) AS Count
+            FROM orders o 
+            INNER JOIN tables t ON t.table_id = o.table_id 
+            WHERE DATE(o.order_datetime) = CURDATE() 
+            ORDER BY o.order_datetime DESC 
+            LIMIT 6";
+
+        $result = mysqli_query($conn, $sql);
+
+        $orders = []; // Initialize an empty array to store results
+
+        if (mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                $orders[] = $row;
+            }
+        }
+
+        mysqli_close($conn);
+        return $orders;
+    }
+
+
     public function getOrderDetails($id)
     {
         $config = new Database();
@@ -81,6 +136,3 @@ class Orders {
         mysqli_close($conn);
     }
 }
-
-
-?>

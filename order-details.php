@@ -2,12 +2,6 @@
 require_once 'includes/header.php';
 require_once 'classes/Orders.php';
 
-if ($_SESSION['role'] !== 4) {
-    session_destroy();
-    header('Location: login.php');
-    exit();
-}
-
 $tables = new Orders();
 $getTables = $tables->getOrderDetails($_GET['id']);
 
@@ -20,6 +14,7 @@ $getTables = $tables->getOrderDetails($_GET['id']);
 
             <div class="container">
                 <h2>Orders List</h2>
+                <div class="table-responsive">
                 <table id="tablesTable" class="display" style="width:100%">
                     <thead>
                         <tr>
@@ -49,6 +44,7 @@ $getTables = $tables->getOrderDetails($_GET['id']);
                     </tbody>
 
                 </table>
+                </div>
             </div>
         </div>
         

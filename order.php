@@ -6,42 +6,93 @@ $tables = new Products();
 $allFloors = $tables->getGroups();
 $getTables = $tables->getProductsByGroup($_GET['gid']);
 ?>
-<section class="tables-content" style="display: flex; width:100%; flex-wrap: wrap;">
+<style>
+/* Default styles */
+.tables-content {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+/* Order section for desktop */
+.order-section {
+    width: 30%;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Hide order toggle button on desktop */
+.order-toggle {
+    display: none;
+}
+
+/* Sidebar effect for tablets & mobile */
+@media (max-width: 992px) {
+    .order-section {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Hidden by default */
+        width: 80%;
+        height: 100vh;
+        background: white;
+        box-shadow: -2px 0px 5px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        padding: 20px;
+        overflow-y: auto;
+    }
+
+    .order-section.open {
+        right: 0; /* Slide in when open */
+    }
+
+    /* Show toggle button only on mobile/tablet */
+    .order-toggle {
+        display: block;
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        background: green;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        z-index: 1100;
+    }
+}
+</style>
+
+<!-- Toggle Button (Only visible on mobile) -->
+<button class="order-toggle" onclick="toggleOrder()">🛒 Orders</button>
+
+<section class="tables-content">
     <div style="width: 65%;">
         <div class="tables" style="width: 100%;">
             <h2>Groups</h2>
             <div class="tables-body">
                 <div class="tab-content">
-
                     <div class="row-table">
                         <?php if (!empty($allFloors)) {
                             foreach ($allFloors as $table) { ?>
-
                                 <a class="table-link" href="order.php?id=<?php echo $_GET['id']; ?>&gid=<?php echo $table['id']; ?>">
                                     <?php echo htmlspecialchars($table['group_name']); ?>
                                 </a>
-
-                        <?php
-                            }
+                        <?php }
                         } else {
                             echo "No floors found.";
-                        }
-                        ?>
+                        } ?>
                     </div>
                 </div>
-
             </div>
         </div>
+
         <div class="tables mt-3" style="margin-top: 10px!important; width: 100%;">
             <h2>Products</h2>
             <div class="tables-body">
-
                 <div class="tab-content">
-
                     <div class="row-table">
                         <?php if (!empty($getTables)) {
                             foreach ($getTables as $table) { ?>
-                                <div class="table-link product" data-name="<?php echo htmlspecialchars($table['name']); ?>"
+                                <div class="table-link product" 
+                                    data-name="<?php echo htmlspecialchars($table['name']); ?>"
                                     data-price="<?php echo htmlspecialchars($table['price']); ?>"
                                     style="background-image: url('assets/<?php echo ($table['image']); ?>'); 
                                     background-size: cover; background-position: center;  
@@ -60,20 +111,28 @@ $getTables = $tables->getProductsByGroup($_GET['gid']);
             </div>
         </div>
     </div>
-    <div style="width: 30%;">
-        <div class="tables" style="width: 100%; height:100%">
-            <h2>Order</h2>
-            <div class="tables-body">
-                <ul id="order-list"></ul>
-                <p><strong>Total:</strong> $<span id="total">0.00</span></p>
-                <p><strong>Tax (18%):</strong> $<span id="tax">0.00</span></p>
-                <p><strong>Grand Total:</strong> $<span id="grand-total">0.00</span></p>
-                <button id="clear-all">Remove All</button>
-                <button id="save-order">Save Order</button>
-            </div>
+
+    <!-- Order Section -->
+    <div class="tables order-section" id="orderSidebar">
+        <h2>Order</h2>
+        <div class="tables-body">
+            <ul id="order-list"></ul>
+            <p><strong>Total:</strong> $<span id="total">0.00</span></p>
+            <p><strong>Tax (18%):</strong> $<span id="tax">0.00</span></p>
+            <p><strong>Grand Total:</strong> $<span id="grand-total">0.00</span></p>
+            <button id="clear-all">Remove All</button>
+            <button id="save-order">Save Order</button>
         </div>
     </div>
 </section>
+
+<!-- JavaScript for Sidebar Toggle -->
+<script>
+function toggleOrder() {
+    document.getElementById("orderSidebar").classList.toggle("open");
+}
+</script>
+
 
 <script>
 $(document).ready(function() {
