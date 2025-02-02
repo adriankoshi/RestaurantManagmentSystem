@@ -504,6 +504,32 @@ body {
 .banner-contetn {
   margin-left: 10%;
   color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Navigation Dots */
+.banner-dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  margin: 5px;
+  background: #fff;
+  border-radius: 50%;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.dot.active {
+  opacity: 1;
 }
 
 .faq-section {
@@ -711,6 +737,9 @@ h2 {
 }
 
 .login-form {
+  background: url("../images/login-background/restaurant-background.jpg")
+    no-repeat center center;
+  background-size: cover;
   background: url("../images/login-background/restaurant-background.jpg")
     no-repeat center center;
   background-size: cover;
